@@ -11,8 +11,8 @@ Data URLs are useful to embed images e.g. in HTML or Markdown documents.
 ```
 brew install libspng
 git clone https://github.com/607011/clip2png2clip.git
-git submodule update
 cd clip2png2clip
+git submodule update --recursive
 CMAKE_BUILD_TYPE=Release cmake .
 cmake --build .
 ```
