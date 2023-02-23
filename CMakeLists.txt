@@ -21,12 +21,10 @@ message(STATUS "SPNG lib dir: ${SNG_LIB_DIR}")
 include_directories(${SPNG_C_INCLUDES})
 link_directories(${SPNG_LIB_DIR})
 
-file(GLOB pic2dataurl_SRC
-    "*.h"
-    "*.cpp"
-)
-
-add_executable(pic2dataurl ${pic2dataurl_SRC}) 
+add_executable(pic2dataurl 
+    main.cpp
+    base64.cpp
+) 
 
 target_include_directories(pic2dataurl
 	PRIVATE ${PROJECT_INCLUDE_DIRS}
@@ -35,6 +33,10 @@ target_include_directories(pic2dataurl
 
 set(CLIP_EXAMPLES OFF CACHE BOOL "Compile clip examples")
 set(CLIP_TESTS OFF CACHE BOOL "Compile clip tests")
+
+add_custom_command(TARGET pic2dataurl 
+  POST_BUILD
+  COMMAND strip pic2dataurl)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/clip)
 target_link_libraries(pic2dataurl clip spng)
