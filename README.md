@@ -9,10 +9,12 @@ Data URLs are useful to embed images e.g. in HTML or Markdown documents.
 ### macOS
 
 ```
-brew install libspng
+brew update
+brew install cmake libspng
 git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
-git submodule update --recursive
+git submodule init
+git submodule update
 CMAKE_BUILD_TYPE=Release cmake .
 cmake --build .
 ```
