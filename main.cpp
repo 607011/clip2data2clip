@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     clip::get_image(img);
 
     std::cout << "Found image (" << img.spec().width << "x" << img.spec().height << ")."
-              << std::endl
+              << std::endl;
 
         int rc;
     spng_ctx *ctx = spng_ctx_new(SPNG_CTX_ENCODER);
@@ -109,3 +109,4 @@ int main(int argc, char *argv[])
 
     return EXIT_SUCCESS;
 }
+
