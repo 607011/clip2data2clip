@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O2")
 
 find_path(SPNG_C_INCLUDES
   NAMES spng.h
-  DOC "PNG C header"
+  DOC "SPNG C header"
 )
 message(STATUS "SPNG include dir: ${SPNG_C_INCLUDES}")
 find_library(SPNG_C_LIBRARIES
