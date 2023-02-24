@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.25)
-PROJECT(pic2dataurl CXX)
+cmake_minimum_required(VERSION 3.1)
+PROJECT(clip2png CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
