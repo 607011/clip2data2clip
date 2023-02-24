@@ -55,3 +55,7 @@ add_custom_command(TARGET pic2stdout
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/clip)
 target_link_libraries(pic2dataurl clip spng)
 target_link_libraries(pic2stdout clip spng)
+
+install(TARGETS pic2dataurl pic2stdout
+  CONFIGURATIONS Release
+  RUNTIME DESTINATION "$ENV{HOME}/bin")
