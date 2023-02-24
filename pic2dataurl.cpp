@@ -25,7 +25,7 @@
 #include "base64.hpp"
 #include "convert.hpp"
 
-int main(int argc, char *argv[])
+int main(void)
 {
     if (!clip::has(clip::image_format()))
     {
@@ -40,12 +40,14 @@ int main(int argc, char *argv[])
               << std::endl;
 
     size_t png_size;
-    auto *const png_buf = convert(img, &png_size);
+    uint8_t *png_buf = convert(img, &png_size);
+    if (png_buf == nullptr)
+    {
+        std::cerr << "Conversion to PNG failed." << std::endl;
+        return EXIT_FAILURE;
+    }
 
     std::string b64 = base64_encode(png_buf, png_size);
-#ifdef DEBUG
-    std::cout << "PNG size: " << png_size << std::endl;
-#endif
     free(png_buf);
 
     std::string url = "data:image/png;base64," + b64;

@@ -22,7 +22,7 @@
 #include "3rdparty/clip/clip.h"
 #include "convert.hpp"
 
-int main(int argc, char *argv[])
+int main(void)
 {
     if (!clip::has(clip::image_format()))
     {
@@ -34,16 +34,18 @@ int main(int argc, char *argv[])
     clip::get_image(img);
 
     size_t png_size;
-    auto *const png_buf = convert(img, &png_size);
+    uint8_t *png_buf = convert(img, &png_size);
+    if (png_buf == nullptr)
+    {
+        std::cerr << "Conversion to PNG failed." << std::endl;
+        return EXIT_FAILURE;
+    }
 
-#ifdef DEBUG
-    std::cout << "PNG size: " << png_size << std::endl;
-#endif
     std::ostream& out = std::cout;
+    out.setf(std::ios::binary);
     out.write(reinterpret_cast<const char*>(png_buf), png_size);
     out.flush();
 
     free(png_buf);
-
     return EXIT_SUCCESS;
 }
