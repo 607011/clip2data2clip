@@ -42,7 +42,6 @@ int main(void)
     }
 
     std::ostream& out = std::cout;
-    out.setf(std::ios::binary);
     out.write(reinterpret_cast<const char*>(png_buf), png_size);
     out.flush();
 
