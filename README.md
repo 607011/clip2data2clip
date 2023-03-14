@@ -1,6 +1,6 @@
 # Clip2Data2Clip
 
-The programs in this repository converts data found in the clipboard to a [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), then copies the URL's text back to the clipboard. The data can be a file, RGB image data or text. RGB image data will be converted to represent a PNG file before being converted to a Data URL.
+The programs in this repository convert data found in the clipboard to a [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), then copy the URL's text back to the clipboard. The data can be a file, RGB image data or text. RGB image data will be converted to represent a PNG file before being converted to a Data URL.
 
 Data URLs are useful to embed images e.g. in HTML or Markdown documents.
 
