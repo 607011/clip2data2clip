@@ -1,6 +1,6 @@
-# Clip2PNG2Clip
+# Clip2Data2Clip
 
-The programs in this repository convert an image found in the clipboard to a PNG, then either copy the PNG's [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs) to the clipboard or print it to stdout.
+The programs in this repository convert data found in the clipboard to a [Data URL](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs), then copy the URL's text back to the clipboard. The data can be a file, RGB image data or text. RGB image data will be converted to represent a PNG file before being converted to a Data URL.
 
 Data URLs are useful to embed images e.g. in HTML or Markdown documents.
 
@@ -39,16 +39,16 @@ TODO
 
 ## Usage
 
-Convert to Data URL:
+Convert clipboard contents to Data URL and copy it to the clipboard:
 
 ```
-./pic2dataurl
+./clip2dataurl
 ```
 
-Write PNG to stdout:
+Same as above but write Data URL to stdout:
 
 ```
-./pic2stdout
+./clip2stdout
 ```
 
 ## Copyright
