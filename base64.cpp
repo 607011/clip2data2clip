@@ -2,10 +2,7 @@
 
 std::string base64_encode(uint8_t const *buf, size_t bufLen)
 {
-    static const std::string base64_chars =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz"
-        "0123456789+/";
+    static const std::string base64_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     std::string b64;
     uint8_t arr3[3];
     uint8_t arr4[4];
@@ -16,8 +13,8 @@ std::string base64_encode(uint8_t const *buf, size_t bufLen)
         if (i == 3)
         {
             arr4[0] = (arr3[0] & 0xfc) >> 2;
-            arr4[1] = ((arr3[0] & 0x03) << 4) + ((arr3[1] & 0xf0) >> 4);
-            arr4[2] = ((arr3[1] & 0x0f) << 2) + ((arr3[2] & 0xc0) >> 6);
+            arr4[1] = ((arr3[0] & 0x03) << 4) | ((arr3[1] & 0xf0) >> 4);
+            arr4[2] = ((arr3[1] & 0x0f) << 2) | ((arr3[2] & 0xc0) >> 6);
             arr4[3] = arr3[2] & 0x3f;
             for (i = 0; i < 4; ++i)
             {
@@ -33,8 +30,8 @@ std::string base64_encode(uint8_t const *buf, size_t bufLen)
             arr3[j] = 0;
         }
         arr4[0] = (arr3[0] & 0xfc) >> 2;
-        arr4[1] = ((arr3[0] & 0x03) << 4) + ((arr3[1] & 0xf0) >> 4);
-        arr4[2] = ((arr3[1] & 0x0f) << 2) + ((arr3[2] & 0xc0) >> 6);
+        arr4[1] = ((arr3[0] & 0x03) << 4) | ((arr3[1] & 0xf0) >> 4);
+        arr4[2] = ((arr3[1] & 0x0f) << 2) | ((arr3[2] & 0xc0) >> 6);
         arr4[3] = arr3[2] & 0x3f;
         for (int j = 0; j <= i; ++j)
         {

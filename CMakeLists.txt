@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-PROJECT(clip2png CXX)
+PROJECT(clip2dataurl CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
@@ -22,40 +22,40 @@ message(STATUS "SPNG lib dir: ${SNG_LIB_DIR}")
 include_directories(${SPNG_C_INCLUDES})
 link_directories(${SPNG_LIB_DIR})
 
-add_executable(pic2dataurl 
-  pic2dataurl.cpp
+add_executable(clip2dataurl 
+  clip2dataurl.cpp
   base64.cpp
   convert.cpp
 )
 
-add_executable(pic2stdout
-  pic2stdout.cpp
+add_executable(clip2stdout
+  clip2stdout.cpp
   convert.cpp
 )
 
-target_include_directories(pic2dataurl
+target_include_directories(clip2dataurl
 	PRIVATE ${PROJECT_INCLUDE_DIRS}
 )
 
-target_include_directories(pic2stdout
+target_include_directories(clip2stdout
 	PRIVATE ${PROJECT_INCLUDE_DIRS}
 )
 
 set(CLIP_EXAMPLES OFF CACHE BOOL "Compile clip examples")
 set(CLIP_TESTS OFF CACHE BOOL "Compile clip tests")
 
-add_custom_command(TARGET pic2dataurl 
+add_custom_command(TARGET clip2dataurl 
   POST_BUILD
-  COMMAND strip pic2dataurl)
+  COMMAND strip clip2dataurl)
 
-add_custom_command(TARGET pic2stdout 
+add_custom_command(TARGET clip2stdout 
   POST_BUILD
-  COMMAND strip pic2stdout)
+  COMMAND strip clip2stdout)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/clip)
-target_link_libraries(pic2dataurl clip spng)
-target_link_libraries(pic2stdout clip spng)
+target_link_libraries(clip2dataurl clip spng)
+target_link_libraries(clip2stdout clip spng)
 
-install(TARGETS pic2dataurl pic2stdout
+install(TARGETS clip2dataurl clip2stdout
   CONFIGURATIONS Release
   RUNTIME DESTINATION "$ENV{HOME}/bin")

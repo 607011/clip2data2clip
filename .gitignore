@@ -1,8 +1,9 @@
+.DS_Store
 .vscode
 *.png
 
-pic2dataurl
-pic2stdout
+clip2dataurl
+clip2stdout
 
 build/
 CMakeCache.txt
