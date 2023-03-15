@@ -38,7 +38,9 @@ int main(void)
             return EXIT_FAILURE;
         }
         std::string mime_type;
-        clip::get_mime_type(clip::file_format(), mime_type);        
+        if (!clip::get_mime_type(clip::file_format(), mime_type)) {
+            mime_type = "application/binary";
+        }
         data_url = "data:" + mime_type + ";base64," + base64_encode(file_data.data(), file_data.size());
     }
     else if (clip::has(clip::image_format()))
@@ -61,7 +63,9 @@ int main(void)
             return EXIT_FAILURE;
         }
         std::string mime_type;
-        clip::get_mime_type(clip::image_format(), mime_type);        
+        if (!clip::get_mime_type(clip::image_format(), mime_type)) {
+            mime_type = "image/png";
+        }
         data_url = "data:" + mime_type + ";base64," + base64_encode(png_buf, png_size);
         free(png_buf);
     }
