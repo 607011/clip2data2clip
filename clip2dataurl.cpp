@@ -45,7 +45,6 @@ int main(void)
     }
     else if (clip::has(clip::image_format()))
     {
-        std::cout << "Found image data." << std::endl;
         clip::image img;
         if (!clip::get_image(img))
         {
