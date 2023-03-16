@@ -3,9 +3,17 @@ PROJECT(clip2dataurl CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -pedantic")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O2")
+if (UNIX)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -pedantic")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O2")
+endif (UNIX)
+
+if (MSVC)
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall /wd4710 /wd4711 /wd4625 /wd4820")
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} /Od")
+	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} /O2")
+endif (MSVC)
 
 #find_path(SPNG_C_INCLUDES
 #  NAMES spng.h
@@ -44,6 +52,7 @@ target_include_directories(clip2stdout
 set(CLIP_EXAMPLES OFF CACHE BOOL "Compile clip examples")
 set(CLIP_TESTS OFF CACHE BOOL "Compile clip tests")
 
+if (UNIX)
 add_custom_command(TARGET clip2dataurl 
   POST_BUILD
   COMMAND strip clip2dataurl)
@@ -51,6 +60,7 @@ add_custom_command(TARGET clip2dataurl
 add_custom_command(TARGET clip2stdout 
   POST_BUILD
   COMMAND strip clip2stdout)
+endif (UNIX)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/clip)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/libspng)
