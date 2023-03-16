@@ -23,7 +23,7 @@ cmake --build .
 
 ```
 brew update
-brew install cmake libspng
+brew install cmake libspng zlib
 git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
 git submodule init
@@ -34,7 +34,27 @@ cmake --build .
 
 ### Windows
 
-TODO
+If not already present, install Git and Git bash:
+
+```
+winget install --id Git.Git -e --source winget
+```
+
+Launch Git Bash. Then:
+
+```
+git clone https://github.com/607011/clip2png2clip.git
+cd clip2png2clip
+git submodule init
+git submodule update
+cd 3rdparty/zlib-1.2.13
+cmake .
+cmake --build . --config Release
+cp Release/zlib.lib .
+cd ../..
+ZLIB_ROOT=3rdparty/zlib cmake .
+cmake --build . --config Release
+```
 
 
 ## Usage
