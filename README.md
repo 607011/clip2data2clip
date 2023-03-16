@@ -56,6 +56,24 @@ ZLIB_ROOT=3rdparty/zlib cmake .
 cmake --build . --config Release
 ```
 
+You'll find the compiled binaries in the subdirectory "Release".
+
+To execute they need some DLLs shipped with the Microsoft compiler:
+
+ - api-ms-win-crt-heap-l1-1-0.dll
+ - api-ms-win-crt-math-l1-1-0.dll
+ - api-ms-win-crt-stdio-l1-1-0.dll
+ - api-ms-win-crt-locale-l1-1-0.dll
+ - api-ms-win-crt-runtime-l1-1-0.dll
+
+On Windows 11 using Visual Studio Community Edition you'll find them in 
+%PROGRAMFILES%/Microsoft Visual Studio/2022/Community/Common7/Tools
+
+Copy the DLLs from there to "Release".
+
+Do the same with 3rdparty/libspng/Release/spng.dll 3rdparty/zlib-1.2.13/Release/zlib.dll.
+
+Now `Release/clip2dataurl` will run properly.
 
 ## Usage
 
