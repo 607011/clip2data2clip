@@ -1,3 +1,6 @@
 [submodule "clip"]
 	path = 3rdparty/clip
 	url = https://github.com/607011/clip.git
+[submodule "3rdparty/libspng"]
+	path = 3rdparty/libspng
+	url = https://github.com/randy408/libspng.git
