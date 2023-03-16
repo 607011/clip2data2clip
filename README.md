@@ -71,7 +71,7 @@ On Windows 11 using Visual Studio Community Edition you'll find them in
 
 Copy the DLLs from there to "Release".
 
-Do the same with 3rdparty/libspng/Release/spng.dll 3rdparty/zlib-1.2.13/Release/zlib.dll.
+Do the same with 3rdparty/libspng/Release/spng.dll and 3rdparty/zlib-1.2.13/Release/zlib.dll.
 
 Now `Release/clip2dataurl` will run properly.
 
