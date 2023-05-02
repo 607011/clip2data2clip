@@ -15,7 +15,9 @@ git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
 git submodule init
 git submodule update
-CMAKE_BUILD_TYPE=Release cmake .
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
@@ -28,7 +30,9 @@ git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
 git submodule init
 git submodule update
-CMAKE_BUILD_TYPE=Release cmake .
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build .
 ```
 
