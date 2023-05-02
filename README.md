@@ -14,7 +14,7 @@ sudo apt install libspng-dev
 git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
 git submodule init
-git submodule update
+git submodule update --remote --merge
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
@@ -29,7 +29,7 @@ brew install cmake libspng zlib
 git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
 git submodule init
-git submodule update
+git submodule update --remote --merge
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
@@ -50,7 +50,7 @@ Launch Git Bash. Then:
 git clone https://github.com/607011/clip2png2clip.git
 cd clip2png2clip
 git submodule init
-git submodule update
+git submodule update --remote --merge
 cd 3rdparty/zlib-1.2.13
 cmake .
 cmake --build . --config Release
