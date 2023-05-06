@@ -12,6 +12,21 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 
+3rdparty/zlib-1.2.13/CTestTestfile.cmake
+3rdparty/zlib-1.2.13/RUN_TESTS.vcxproj
+3rdparty/zlib-1.2.13/RUN_TESTS.vcxproj.filters
+3rdparty/zlib-1.2.13/example.vcxproj
+3rdparty/zlib-1.2.13/example.vcxproj.filters
+3rdparty/zlib-1.2.13/minigzip.vcxproj
+3rdparty/zlib-1.2.13/minigzip.vcxproj.filters
+3rdparty/zlib-1.2.13/zlib.lib
+3rdparty/zlib-1.2.13/zlib.pc
+3rdparty/zlib-1.2.13/zlib.sln
+3rdparty/zlib-1.2.13/zlib.vcxproj
+3rdparty/zlib-1.2.13/zlib.vcxproj.filters
+3rdparty/zlib-1.2.13/zlibstatic.vcxproj
+3rdparty/zlib-1.2.13/zlibstatic.vcxproj.filters
+
 .vs/
 ALL_BUILD.vcxproj
 ALL_BUILD.vcxproj.filters

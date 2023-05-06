@@ -44,7 +44,7 @@ If not already present, install Git and Git bash:
 winget install --id Git.Git -e --source winget
 ```
 
-Launch Git Bash. Then:
+Launch Visual Studio Developer Command Prompt. Then:
 
 ```
 git clone https://github.com/607011/clip2png2clip.git
@@ -56,7 +56,7 @@ cmake .
 cmake --build . --config Release
 cp Release/zlib.lib .
 cd ../..
-ZLIB_ROOT=3rdparty/zlib cmake .
+cmake . -DZLIB_ROOT="3rdparty/zlib-1.2.13"
 cmake --build . --config Release
 ```
 
